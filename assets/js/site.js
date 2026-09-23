@@ -11,9 +11,7 @@
     }).format(new Date());
   }
 
-  if (currentYear) {
-    currentYear.textContent = String(new Date().getFullYear());
-  }
+  if (currentYear) currentYear.textContent = String(new Date().getFullYear());
 
   let scrollTicking = false;
   const updateScrollProgress = () => {
@@ -35,8 +33,15 @@
   backToTop.className = 'back-to-top';
   backToTop.setAttribute('aria-label', 'กลับด้านบน');
   backToTop.textContent = '↑';
+  backToTop.hidden = true;
+  backToTop.tabIndex = -1;
   document.body.appendChild(backToTop);
-  const updateBackToTop = () => backToTop.classList.toggle('is-visible', window.scrollY > 560);
+  const updateBackToTop = () => {
+    const visible = window.scrollY > 560;
+    backToTop.hidden = !visible;
+    backToTop.tabIndex = visible ? 0 : -1;
+    backToTop.classList.toggle('is-visible', visible);
+  };
   backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
   window.addEventListener('scroll', updateBackToTop, { passive: true });
   updateBackToTop();
@@ -45,25 +50,109 @@
   const mobileNav = document.querySelector('[data-mobile-nav]');
 
   if (menuButton && mobileNav) {
-    const closeMenu = () => {
-      menuButton.setAttribute('aria-expanded', 'false');
-      mobileNav.classList.remove('is-open');
-      document.body.classList.remove('menu-open');
+    const mobileLinks = [...mobileNav.querySelectorAll('a')];
+    const setMenuState = (open, focusLink = false) => {
+      menuButton.setAttribute('aria-expanded', String(open));
+      menuButton.setAttribute('aria-label', open ? 'ปิดเมนู' : 'เปิดเมนู');
+      mobileNav.classList.toggle('is-open', open);
+      document.body.classList.toggle('menu-open', open);
+      if (focusLink && open) mobileLinks[0]?.focus();
+    };
+    const closeMenu = (restoreFocus = false) => {
+      setMenuState(false);
+      if (restoreFocus) menuButton.focus();
     };
 
     menuButton.addEventListener('click', () => {
-      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
-      menuButton.setAttribute('aria-expanded', String(!isOpen));
-      mobileNav.classList.toggle('is-open', !isOpen);
-      document.body.classList.toggle('menu-open', !isOpen);
+      const open = menuButton.getAttribute('aria-expanded') !== 'true';
+      setMenuState(open, open);
     });
-
-    mobileNav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-
+    mobileLinks.forEach((link) => link.addEventListener('click', () => closeMenu()));
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeMenu();
+      if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') closeMenu(true);
     });
   }
+
+  const savedStorageKey = 'portal-saved-items';
+  const readSavedItems = () => {
+    try {
+      const value = JSON.parse(localStorage.getItem(savedStorageKey) || '[]');
+      return Array.isArray(value) ? value.filter((item) => item && typeof item === 'object' && item.id && item.title && item.url) : [];
+    } catch {
+      return [];
+    }
+  };
+  const writeSavedItems = (items) => {
+    try {
+      localStorage.setItem(savedStorageKey, JSON.stringify(items.slice(0, 100)));
+    } catch {}
+  };
+  const updateSavedLinks = () => {
+    const count = readSavedItems().length;
+    document.querySelectorAll('[data-saved-count]').forEach((element) => {
+      element.textContent = `บันทึก (${count})`;
+    });
+    document.querySelectorAll('[data-saved-link]').forEach((element) => {
+      element.setAttribute('aria-label', `รายการที่บันทึก ${count} รายการ`);
+    });
+  };
+  const showToast = (message) => {
+    let toast = document.querySelector('[data-portal-toast]');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.className = 'portal-toast';
+      toast.dataset.portalToast = 'true';
+      toast.setAttribute('role', 'status');
+      toast.setAttribute('aria-live', 'polite');
+      document.body.appendChild(toast);
+    }
+    toast.textContent = message;
+    toast.classList.add('is-visible');
+    window.clearTimeout(showToast.timeout);
+    showToast.timeout = window.setTimeout(() => toast.classList.remove('is-visible'), 2600);
+  };
+  const saved = {
+    getAll: readSavedItems,
+    has: (id) => readSavedItems().some((item) => item.id === id),
+    toggle: (item) => {
+      const items = readSavedItems();
+      const id = String(item.id || item.url);
+      const index = items.findIndex((savedItem) => savedItem.id === id);
+      if (index >= 0) {
+        items.splice(index, 1);
+        writeSavedItems(items);
+        updateSavedLinks();
+        document.dispatchEvent(new CustomEvent('portal:saved-change'));
+        showToast('นำออกจากรายการที่บันทึกแล้ว');
+        return false;
+      }
+      items.unshift({
+        id,
+        type: item.type || 'news',
+        title: String(item.title || '').slice(0, 220),
+        url: item.url,
+        source: String(item.source || '').slice(0, 120),
+        publishedAt: item.publishedAt || null,
+      });
+      writeSavedItems(items);
+      updateSavedLinks();
+      document.dispatchEvent(new CustomEvent('portal:saved-change'));
+      showToast('บันทึกเรื่องนี้แล้ว');
+      return true;
+    },
+    remove: (id) => {
+      writeSavedItems(readSavedItems().filter((item) => item.id !== id));
+      updateSavedLinks();
+      document.dispatchEvent(new CustomEvent('portal:saved-change'));
+    },
+    clear: () => {
+      writeSavedItems([]);
+      updateSavedLinks();
+      document.dispatchEvent(new CustomEvent('portal:saved-change'));
+    },
+  };
+  window.portalSaved = saved;
+  updateSavedLinks();
 
   const cards = [...document.querySelectorAll('[data-news-card]')];
   const filterButtons = [...document.querySelectorAll('[data-filter]')];
@@ -78,37 +167,15 @@
   if (requestedFilter && validFilters.has(requestedFilter)) selectedFilter = requestedFilter;
 
   const categoryPage = document.querySelector('[data-category-page]');
-
   if (categoryPage) {
     const categoryDetails = {
-      'เทคโนโลยี': {
-        eyebrow: 'หมวดเทคโนโลยี',
-        title: 'เครื่องมือและไอเดียที่นำไปใช้ได้จริง',
-        description: 'ข่าวสาร บทวิเคราะห์ และคู่มือด้านเทคโนโลยีที่ช่วยให้เลือกใช้งานได้เหมาะกับงานจริง',
-      },
-      'ธุรกิจ': {
-        eyebrow: 'หมวดธุรกิจ',
-        title: 'ข้อมูลและเครื่องมือที่ช่วยให้ธุรกิจเดินหน้า',
-        description: 'เรียนรู้จากกระบวนการทำงาน การจัดการข้อมูล และการตัดสินใจที่เกิดขึ้นจริงในธุรกิจ',
-      },
-      'สังคม': {
-        eyebrow: 'หมวดสังคม',
-        title: 'บริบทของเรื่องราวที่กำลังเปลี่ยนไป',
-        description: 'มองประเด็นสังคมผ่านข้อมูล บริบท และคำถามที่ควรตั้งไว้ก่อนสรุป',
-      },
-      'สุขภาพ': {
-        eyebrow: 'หมวดสุขภาพ',
-        title: 'เริ่มต้นดูแลตัวเองจากสิ่งที่ทำได้วันนี้',
-        description: 'คู่มือสั้น ๆ สำหรับการพักผ่อน จัดการพลัง และสร้างนิสัยที่เหมาะกับชีวิตจริง',
-      },
-      'ท่องเที่ยว': {
-        eyebrow: 'หมวดท่องเที่ยว',
-        title: 'เมือง ชุมชน และการท่องเที่ยวที่มีบริบท',
-        description: 'เรื่องราวการเดินทางที่มองทั้งผู้เยี่ยมชม ชุมชน และสิ่งที่ทำให้ท้องถิ่นยังมีชีวิต',
-      },
+      'เทคโนโลยี': { eyebrow: 'หมวดเทคโนโลยี', title: 'เครื่องมือและไอเดียที่นำไปใช้ได้จริง', description: 'ข่าวสาร บทวิเคราะห์ และคู่มือด้านเทคโนโลยีที่ช่วยให้เลือกใช้งานได้เหมาะสมกับงานจริง' },
+      'ธุรกิจ': { eyebrow: 'หมวดธุรกิจ', title: 'ข้อมูลและเครื่องมือที่ช่วยให้ธุรกิจเดินหน้า', description: 'เรียนรู้จากกระบวนการทำงาน การจัดการข้อมูล และการตัดสินใจที่เกิดขึ้นจริงในธุรกิจ' },
+      'สังคม': { eyebrow: 'หมวดสังคม', title: 'บริบทของเรื่องราวที่กำลังเปลี่ยนไป', description: 'มองประเด็นสังคมผ่านข้อมูล บริบท และคำถามที่ควรตั้งไว้ก่อนสรุป' },
+      'สุขภาพ': { eyebrow: 'หมวดสุขภาพ', title: 'เริ่มต้นดูแลตัวเองจากสิ่งที่ทำได้วันนี้', description: 'คู่มือสั้น ๆ สำหรับการพักผ่อน จัดการพลัง และสร้างนิสัยที่เหมาะกับชีวิตจริง' },
+      'ท่องเที่ยว': { eyebrow: 'หมวดท่องเที่ยว', title: 'เมือง ชุมชน และการท่องเที่ยวที่มีบริบท', description: 'เรื่องราวการเดินทางที่มองทั้งผู้เยี่ยมชม ชุมชน และสิ่งที่ทำให้ท้องถิ่นยังมีชีวิต' },
     };
     const details = categoryDetails[selectedFilter];
-
     if (details) {
       const eyebrow = categoryPage.querySelector('[data-category-eyebrow]');
       const title = categoryPage.querySelector('[data-category-title]');
@@ -124,7 +191,6 @@
     if (!cards.length) return;
     const query = searchInput ? searchInput.value.trim().toLocaleLowerCase('th') : '';
     let visible = 0;
-
     cards.forEach((card) => {
       const matchesFilter = selectedFilter === 'ทั้งหมด' || card.dataset.category === selectedFilter;
       const searchable = `${card.dataset.title} ${card.textContent}`.toLocaleLowerCase('th');
@@ -133,15 +199,14 @@
       card.hidden = !isVisible;
       if (isVisible) visible += 1;
     });
-
     filterButtons.forEach((button) => {
       const isActive = button.dataset.filter === selectedFilter;
       button.classList.toggle('is-active', isActive);
       button.setAttribute('aria-pressed', String(isActive));
     });
-
     if (resultCount) resultCount.textContent = `พบ ${visible} เรื่อง`;
     if (emptyState) emptyState.hidden = visible !== 0;
+    document.dispatchEvent(new CustomEvent('portal:news-filter', { detail: { query, category: selectedFilter } }));
   };
 
   filterButtons.forEach((button) => {
@@ -150,12 +215,10 @@
       updateNews();
     });
   });
-
   if (searchInput) searchInput.addEventListener('input', updateNews);
   updateNews();
 
   const copyButton = document.querySelector('[data-copy-link]');
-
   if (copyButton) {
     copyButton.addEventListener('click', async () => {
       try {
@@ -169,7 +232,6 @@
 
   const contactForm = document.querySelector('[data-contact-form]');
   const contactStatus = document.querySelector('[data-contact-status]');
-
   if (contactForm && contactStatus) {
     contactForm.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -179,22 +241,23 @@
     });
   }
 
-  const storageKey = 'portal-ad-consent';
+  const storageKey = 'portal-ad-consent-v1';
   const banner = document.querySelector('[data-consent-banner]');
   const settingsButton = document.querySelector('[data-consent-settings]');
   const adClient = 'ca-pub-3203802670121740';
-
   if (banner && settingsButton) {
-    const hideBanner = () => {
+    let previousFocus = null;
+    const hideBanner = (restoreFocus = false) => {
       banner.hidden = true;
       settingsButton.hidden = false;
+      if (restoreFocus && previousFocus) previousFocus.focus();
     };
-
-    const showBanner = () => {
+    const showBanner = (focus = false) => {
+      if (banner.hidden) previousFocus = document.activeElement;
       banner.hidden = false;
       settingsButton.hidden = true;
+      if (focus) window.requestAnimationFrame(() => banner.querySelector('button')?.focus());
     };
-
     const queueAdUnits = () => {
       document.querySelectorAll('ins.adsbygoogle').forEach((unit) => {
         if (unit.dataset.portalQueued === 'true') return;
@@ -203,10 +266,8 @@
         window.adsbygoogle.push({});
       });
     };
-
     const loadAdSense = () => {
-      const units = document.querySelectorAll('ins.adsbygoogle');
-      if (!units.length) return;
+      if (!document.querySelector('ins.adsbygoogle')) return;
       queueAdUnits();
       if (document.querySelector('script[data-portal-adsense]')) return;
       const script = document.createElement('script');
@@ -216,12 +277,8 @@
       script.dataset.portalAdsense = 'true';
       document.head.appendChild(script);
     };
-
     let choice = null;
-    try {
-      choice = localStorage.getItem(storageKey);
-    } catch {}
-
+    try { choice = localStorage.getItem(storageKey); } catch {}
     if (choice === 'granted') {
       loadAdSense();
       hideBanner();
@@ -230,15 +287,12 @@
     } else {
       showBanner();
     }
-
     banner.addEventListener('click', (event) => {
       const button = event.target.closest('[data-consent]');
       if (!button) return;
       const adsWereLoaded = Boolean(document.querySelector('script[data-portal-adsense]'));
       choice = button.dataset.consent;
-      try {
-        localStorage.setItem(storageKey, choice);
-      } catch {}
+      try { localStorage.setItem(storageKey, choice); } catch {}
       if (choice === 'granted') loadAdSense();
       if (choice === 'declined' && adsWereLoaded) {
         window.location.reload();
@@ -246,7 +300,6 @@
       }
       hideBanner();
     });
-
-    settingsButton.addEventListener('click', showBanner);
+    settingsButton.addEventListener('click', () => showBanner(true));
   }
 })();

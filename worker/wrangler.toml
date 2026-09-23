@@ -6,8 +6,9 @@ workers_dev = true
 [assets]
 directory = ".."
 binding = "ASSETS"
+html_handling = "none"
 not_found_handling = "404-page"
-run_worker_first = ["/api/*"]
+run_worker_first = ["/api/*", "/"]
 
 [triggers]
 crons = ["0 * * * *"]

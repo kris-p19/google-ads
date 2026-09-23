@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="assets/css/site.css" />
     <script src="assets/js/site.js" defer></script>
     <script src="assets/js/jobs.js" defer></script>
+    <meta property="og:site_name" content="Portal" />
+    <meta name="twitter:card" content="summary" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">ข้ามไปยังเนื้อหา</a>
@@ -50,19 +52,19 @@
       <section class="container" aria-label="ค้นหาและกรองประกาศงาน">
         <div class="filters">
           <div class="search-field"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg><label class="sr-only" for="jobs-search">ค้นหาประกาศงาน</label><input id="jobs-search" type="search" placeholder="ค้นหาตำแหน่ง หน่วยงาน หรือกระทรวง" data-jobs-search /></div>
-          <div class="filter-list"><label class="sr-only" for="jobs-ministry">กระทรวง</label><select id="jobs-ministry" class="filter-button" data-jobs-ministry><option value="all">ทุกกระทรวง</option></select><label class="sr-only" for="jobs-status">สถานะ</label><select id="jobs-status" class="filter-button" data-jobs-status><option value="all">ทุกสถานะ</option><option value="เปิดรับสมัคร">เปิดรับสมัคร</option><option value="ปิดรับสมัคร">ปิดรับสมัคร</option></select></div>
+          <div class="filter-list"><label class="sr-only" for="jobs-ministry">กระทรวง</label><select id="jobs-ministry" class="filter-button" data-jobs-ministry><option value="all">ทุกกระทรวง</option></select><label class="sr-only" for="jobs-status">สถานะ</label><select id="jobs-status" class="filter-button" data-jobs-status><option value="all">ทุกสถานะ</option><option value="เปิดรับสมัคร">เปิดรับสมัคร</option><option value="ยังไม่เริ่ม">ยังไม่เริ่ม</option><option value="ปิดรับสมัคร">ปิดรับสมัคร</option><option value="ไม่ระบุ">ไม่ระบุ</option></select></div>
         </div>
-        <div class="news-toolbar"><p class="news-count" data-jobs-count aria-live="polite">กำลังโหลดประกาศรับสมัครงาน...</p><a class="section-link" href="https://job.ocsc.go.th/portal/" target="_blank" rel="noopener noreferrer">เปิด OCSC ต้นฉบับ ↗</a></div>
+        <div class="news-toolbar"><p class="news-count" data-jobs-count aria-live="polite">กำลังโหลดประกาศรับสมัครงาน...</p><div class="toolbar-links"><a class="section-link" href="https://job.ocsc.go.th/portal/" target="_blank" rel="noopener noreferrer">เปิด OCSC ต้นฉบับ ↗</a><a class="section-link" href="saved.html" data-saved-link data-saved-count>บันทึก (0)</a></div></div>
       </section>
 
       <section class="container section-compact" aria-label="รายการประกาศรับสมัครงาน">
         <div class="news-grid" data-jobs-grid></div>
         <div class="empty-state" data-jobs-empty hidden><strong>ยังไม่พบประกาศที่ตรงกัน</strong><p>ลองเปลี่ยนคำค้นหา กระทรวง หรือสถานะ</p></div>
+        <div class="load-more"><button class="button button-outline button-small" type="button" data-jobs-more hidden>ดูเพิ่ม</button></div>
         <p class="form-note">ข้อมูลนี้เป็นข้อมูลสาธารณะที่ดึงจาก OCSC โปรดตรวจสอบประกาศต้นฉบับ เงื่อนไขการสมัคร และวันปิดรับสมัครก่อนตัดสินใจ</p>
       </section>
 
       <aside class="container advertisement" aria-label="โฆษณา"><p class="ad-label">โฆษณา</p><div class="ad-desktop ad-wide"><ins class="adsbygoogle" style="display:inline-block;width:1200px;height:90px" data-ad-client="ca-pub-3203802670121740" data-ad-slot="6303144309"></ins></div><div class="ad-mobile"><ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-ef+6k-30-ac+ty" data-ad-client="ca-pub-3203802670121740" data-ad-slot="7740847159"></ins></div></aside>
-      <aside class="container advertisement" aria-label="โฆษณา"><p class="ad-label">โฆษณา</p><div class="ad-standard"><ins class="adsbygoogle" style="display:inline-block;width:600px;height:70px" data-ad-client="ca-pub-3203802670121740" data-ad-slot="4348689913"></ins></div></aside>
     </main>
 
     <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P</span><span>Portal<span class="brand-dot">.</span></span></a><p>พื้นที่รวมข่าวสาร ข้อมูลงานราชการ และคู่มือที่คัดสรรให้เข้าใจง่าย</p></div><div><p class="footer-title">ค้นพบ</p><div class="footer-links"><a href="jobs.html">งานราชการ</a><a href="news.html">ข่าวสาร</a><a href="category.html">หมวดเนื้อหา</a></div></div><div><p class="footer-title">แหล่งข้อมูล</p><div class="footer-links"><a href="https://job.ocsc.go.th/portal/" target="_blank" rel="noopener noreferrer">OCSC ต้นฉบับ ↗</a><a href="sources.html">แหล่งข่าวและการใช้งาน</a><a href="rss.xml">RSS Feed</a></div></div><div><p class="footer-title">เกี่ยวกับ</p><div class="footer-links"><a href="about.html">เกี่ยวกับ Portal</a><a href="privacy.html">ความเป็นส่วนตัว</a><a href="contact.html">ติดต่อ</a></div></div></div><div class="footer-bottom"><p>© <span data-current-year>2026</span> Portal. สงวนลิขสิทธิ์.</p><p>ประกาศงานมีลิงก์กลับไปยัง OCSC ต้นฉบับ</p></div></div></footer>

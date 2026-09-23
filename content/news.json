@@ -1,5 +1,6 @@
 {
-  "generatedAt": "2026-09-23T17:52:14.312Z",
+  "generatedAt": "2026-09-23T23:00:26.466Z",
+  "lastSuccessfulAt": null,
   "usage": "headline-summary-link-only",
   "notice": "แสดงเฉพาะหัวข้อ สรุปสั้น และลิงก์ต้นฉบับจากฟีดทางการ โดยไม่คัดลอกเนื้อหาเต็มหรือรูปภาพ",
   "sources": [
@@ -23,6 +24,29 @@
       "url": "https://www.who.int/rss-feeds/news-english.xml",
       "homepage": "https://www.who.int/",
       "category": "สุขภาพ"
+    }
+  ],
+  "sourceStatus": [
+    {
+      "id": "un-news",
+      "status": "stale",
+      "itemCount": 10,
+      "lastAttemptAt": "2026-09-23T23:00:26.466Z",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "nasa",
+      "status": "stale",
+      "itemCount": 10,
+      "lastAttemptAt": "2026-09-23T23:00:26.466Z",
+      "lastSuccessAt": null
+    },
+    {
+      "id": "who",
+      "status": "empty",
+      "itemCount": 0,
+      "lastAttemptAt": "2026-09-23T23:00:26.466Z",
+      "lastSuccessAt": null
     }
   ],
   "items": [
@@ -265,126 +289,6 @@
       "summary": "The first generation to grow up with AI may also be the last one anyone thinks to ask about it – and that has to change, the UN's top human rights official said on Tuesday.",
       "url": "https://news.un.org/feed/view/en/story/2026/09/1168403",
       "publishedAt": "2026-09-22T12:00:00.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "WHO Director-General visits Jordan to recognize strong collaboration on health system delivery, emergency relief and advancing mental health",
-      "summary": "The Director-General of the World Health Organization, Dr Tedros Adhanom Ghebreyesus, today concluded the first day of his two-day State visit to the Hashemite Kingdom of Jordan, underscoring the strong partnership between WHO and Jordan across the areas of u…",
-      "url": "https://www.who.int/news/item/25-02-2026-who-director-general-visits-jordan-to-recognize-strong-collaboration-on-health-system-delivery--emergency-relief-and-advancing-mental-health",
-      "publishedAt": "2026-02-25T18:06:55.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "WHO statement on notification of withdrawal of the United States",
-      "summary": "WHO regrets the United States’ notification of withdrawal from WHO – a decision that makes both the United States and the world less safe. The notification of withdrawal raises issues that will be considered by the WHO Executive Board at its regular meeting s…",
-      "url": "https://www.who.int/news/item/24-01-2026-who-statement-on-notification-of-withdrawal-of-the-united-states",
-      "publishedAt": "2026-01-24T20:09:49.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "Paying tribute to David Nabarro",
-      "summary": "Tribute to Dr David Nabarro",
-      "url": "https://www.who.int/news/item/30-07-2025-paying-tribute-to-david-nabarro",
-      "publishedAt": "2025-07-30T08:56:15.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "Timor-Leste certified malaria-free by WHO",
-      "summary": "The World Health Organization (WHO) has certified Timor-Leste as malaria-free, a remarkable achievement for a country that prioritized the disease and embarked on a concerted, nation-wide response shortly after gaining independence in 2002. &ldquo;WHO congrat…",
-      "url": "https://www.who.int/news/item/24-07-2025-timor-leste-certified-malaria-free-by-who",
-      "publishedAt": "2025-07-23T10:07:41.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "African Union and World Health Organization renew strategic partnership to drive impact and strengthen health systems in Africa",
-      "summary": "The World Health Organization (WHO) and the African Union (AU) Commission renewed their longstanding strategic partnership today with the signing of an updated Memorandum of Understanding (MoU) on the sidelines of the 78th World Health Assembly in Geneva. Thi…",
-      "url": "https://www.who.int/news/item/24-05-2025-world-health-organization-and-african-union-renew-strategic-partnership-to-drive-impact-and-strengthen-health-systems-in-africa",
-      "publishedAt": "2025-05-24T17:47:21.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "WHO’s strategic engagement with philanthropies: advancing global health and resilient health systems",
-      "summary": "Philanthropic support plays a vital role in enabling countries to build stronger health systems and advance towards health equity. From vaccine equity and pandemic preparedness to primary health care, the contributions of philanthropic partners help drive pro…",
-      "url": "https://www.who.int/news/item/19-05-2025-who-s-strategic-engagement-with-philanthropies-advancing-global-health-and-resilient-health-systems",
-      "publishedAt": "2025-05-19T11:53:23.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "Worldwide rally for maternal and newborn health marks World Health Day 2025",
-      "summary": "On the occasion of the World Health Day 2025 dedicated to the theme of Healthier beginnings, hopeful futures, over 100 global WHO offices have organized wide-ranging public advocacy actions in collaboration with Member States, communities, health workers, par…",
-      "url": "https://www.who.int/news/item/10-04-2025-worldwide-rally-for-maternal-and-newborn-health-marks-world-health-day-2025",
-      "publishedAt": "2025-04-10T15:02:54.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "Strengthening public health across Lebanon with EIB Global",
-      "summary": "Dr Tedros Adhanom Ghebreyesus, Director-General of the World Health Organization (WHO), and Thomas Östros, Vice-President of the European Investment Bank (EIB Global), met at the EIB Group Forum in Luxembourg and signed an agreement for a €10 million grant to…",
-      "url": "https://www.who.int/news/item/06-03-2025-strengthening-public-health-across-lebanon-with-eib-global",
-      "publishedAt": "2025-04-01T11:55:48.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "Frank, in-depth discussion as Belgium and WHO map ahead priorities for collaboration",
-      "summary": "In a three-day strategic dialogue, Belgium and WHO reviewed progress in their longstanding partnership, and agreed to further boost their collaboration on universal health coverage, health-systems strengthening and equitable access to essential vaccines, medi…",
-      "url": "https://www.who.int/news/item/11-03-2025-frank--in-depth-discussion-as-belgium-and-who-map-ahead-priorities-for-collaboration",
-      "publishedAt": "2025-03-11T08:49:23.000Z"
-    },
-    {
-      "sourceId": "who",
-      "sourceName": "World Health Organization",
-      "sourceUrl": "https://www.who.int/",
-      "sourceFeed": "https://www.who.int/rss-feeds/news-english.xml",
-      "category": "สุขภาพ",
-      "accent": "coral",
-      "title": "WHO and Switzerland cement cooperation until 2028",
-      "summary": "WHO and Switzerland have announced the renewal of their cooperation strategy for the period 2024-2028. In 2013, Switzerland became the first high-income country in the WHO European Region to pilot a cooperation strategy with WHO (hereafter referred to as the…",
-      "url": "https://www.who.int/news/item/07-03-2025-who-and-switzerland-cement-cooperation-until-2028",
-      "publishedAt": "2025-03-07T12:38:51.000Z"
     }
   ]
 }

@@ -1,17 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Portal — ข่าวสารและคู่มือ</title>
     <link>https://brief.fintechxhub.com/</link>
+    <atom:link rel="self" type="application/rss+xml" href="https://brief.fintechxhub.com/rss.xml" />
     <description>ข่าวสาร บทวิเคราะห์ และคู่มือที่คัดสรรให้เข้าใจง่าย</description>
     <language>th</language>
-    <lastBuildDate>Thu, 24 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 23:00:26 GMT</lastBuildDate>
     <item>
-      <title>7 วิธีอ่านข่าวออนไลน์แบบคิดก่อนเชื่อ</title>
-      <link>https://brief.fintechxhub.com/article.html</link>
-      <guid isPermaLink="true">https://brief.fintechxhub.com/article.html</guid>
-      <pubDate>Thu, 24 Sep 2026 00:00:00 GMT</pubDate>
-      <description>ตรวจแหล่งที่มา ภาพ และบริบทก่อนแชร์ต่อ โดยใช้เวลาไม่กี่นาที</description>
+      <title>Shannon Lucid’s Record-Setting Mission Aboard Mir</title>
+      <link>https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/</link>
+      <guid isPermaLink="true">https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/</guid>
+      <pubDate>Wed, 23 Sep 2026 16:03:37 GMT</pubDate>
+      <description>Shannon Lucid’s Record-Setting Mission Aboard Mir Three days before returning to Earth, Shannon W. Lucid—who joined NASA in 1978 as one of its first six female astronauts—checked in on wheat growing in the Svet greenhouse aboard the Russian space station Mir.…</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>FFA 2026 Hyperwall Schedule</title>
+      <link>https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/</link>
+      <guid isPermaLink="true">https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/</guid>
+      <pubDate>Wed, 23 Sep 2026 14:58:13 GMT</pubDate>
+      <description>FFA 2026 Hyperwall Schedule</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>Risk of Hydrazine Use Following Freeze–Thaw Exposure</title>
+      <link>https://www.nasa.gov/general/risk-of-hydrazine-use-following-freeze-thaw-exposure/</link>
+      <guid isPermaLink="true">https://www.nasa.gov/general/risk-of-hydrazine-use-following-freeze-thaw-exposure/</guid>
+      <pubDate>Wed, 23 Sep 2026 14:31:58 GMT</pubDate>
+      <description>For more information, contact Jonathan E. Jones, Langley Research Center, jonathan.e.jones@nasa.gov Download the PDF version The purpose of this Technical Bulletin is to communicate the risks associated with freeze–thaw cycles in hydrazine monopropellant syst…</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>NASA’s Hubble Seeks Lensed Supernova, Marks 200,000 Orbits</title>
+      <link>https://science.nasa.gov/missions/hubble/nasas-hubble-seeks-lensed-supernova-marks-200000-orbits/</link>
+      <guid isPermaLink="true">https://science.nasa.gov/missions/hubble/nasas-hubble-seeks-lensed-supernova-marks-200000-orbits/</guid>
+      <pubDate>Wed, 23 Sep 2026 13:55:34 GMT</pubDate>
+      <description>NASA’s Hubble Space Telescope completed its 200,000th orbit around Earth on Sept. 19, marking another new milestone for an observatory that continues to transform our understanding of the universe. Hubble has traveled more than 5 billion miles around Earth ov…</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>At UN, Pezeshkian turns terrorism accusation back on Iran’s critics</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168412</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168412</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <description>President Masoud Pezeshkian opened his General Assembly address with a direct rebuttal to US President Donald Trump, who a day earlier had branded Iran the “number one sponsor of terror.”</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>Syria begins ‘new phase of revival’, President Al-Sharaa tells General Assembly</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168411</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168411</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <description>Syrian President Ahmad Al-Sharaa told the UN General Assembly on Wednesday that his country “is rising” on many levels, thanks to the strength of its people.</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>Security Council LIVE: World leaders debate ongoing war in Ukraine</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168410</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168410</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <description>Five years of war. Another winter closing in. Today, the Security Council once again debates a path to peace – though any resolution still runs up against the veto of Russia, one of its own permanent members, whose objections have repeatedly stalled any conse…</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>Right to development: A blueprint for unmet promises</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168405</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168405</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <description>Ahead of the 40th anniversary of the groundbreaking Declaration on the Right to Development this December, world leaders gathered at a High-Level Week meeting on Wednesday to map progress made and the 21st century challenges still ahead – from narrowing the d…</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>UN health agency calls for investment boost to save young lives from cancer</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168408</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168408</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <description>More children and young people are beating cancer, but progress remains uneven across regions and age groups, highlighting the need for increased investment to boost survival rates.</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>DR Congo Ebola outbreak toll exceeds 3,700 deaths</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168407</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168407</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <description>More than 130 days into the latest Ebola outbreak in the Democratic Republic of the Congo (DRC), health experts said on Wednesday that response efforts have been scaled up significantly and “the first encouraging signs of progress” are now being seen.</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>United Kingdom announces action on disinformation and global AI standards</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168406</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168406</guid>
+      <pubDate>Wed, 23 Sep 2026 12:00:00 GMT</pubDate>
+      <description>The United Kingdom will fight disinformation at home and abroad, and work to ensure global safety standards for artificial intelligence (AI), new Prime Minister Andy Burnham said on Monday evening in his first address to the United Nations General Assembly.&amp;n…</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>APOD: 2026 September 23 – A New Lunar Crater: McGetchin</title>
+      <link>https://science.nasa.gov/image-article/apod-2026-september-23-the-mcgetchin-crater/</link>
+      <guid isPermaLink="true">https://science.nasa.gov/image-article/apod-2026-september-23-the-mcgetchin-crater/</guid>
+      <pubDate>Wed, 23 Sep 2026 04:05:00 GMT</pubDate>
+      <description>APOD Science APOD APOD: 2026 September 23 – A… Today’s APOD Archive Submissions Index Search Calendar RSS Education About Discuss APOD Astronomy Picture of the Day Discover the cosmos! Each day a different image or photograph of our fascinating universe is fe…</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>Boom Year for Desert Blooms</title>
+      <link>https://science.nasa.gov/earth/earth-observatory/boom-year-for-desert-blooms/</link>
+      <guid isPermaLink="true">https://science.nasa.gov/earth/earth-observatory/boom-year-for-desert-blooms/</guid>
+      <pubDate>Wed, 23 Sep 2026 04:01:00 GMT</pubDate>
+      <description>Carpets of wildflowers burst from arid, ochre-colored land in Western Australia following winter rains.</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>Curiosity Blog, Sols 5010-5015: Checking out the Bands</title>
+      <link>https://science.nasa.gov/blog/curiosity-blog-sols-5010-5015-checking-out-the-bands/</link>
+      <guid isPermaLink="true">https://science.nasa.gov/blog/curiosity-blog-sols-5010-5015-checking-out-the-bands/</guid>
+      <pubDate>Wed, 23 Sep 2026 00:40:16 GMT</pubDate>
+      <description>Catherine O’Connell-Cooper, APXS Strategic Planner and Payload Uplink/Downlink Lead, University New Brunswick, NB, Canada Earth planning date: Friday, Sept. 11, 2026 This week we had two planning days (Tuesday and Friday), as Monday was Labor Day in North Ame…</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>Risks of Decompression Sickness and Venous Thromboembolism during Spaceflight and Patent Foramen Ovale Implications</title>
+      <link>https://www.nasa.gov/organizations/ochmo/risks-of-decompression-sickness-and-venous-thromboembolism-during-spaceflight-and-patent-foramen-ovale-implications/</link>
+      <guid isPermaLink="true">https://www.nasa.gov/organizations/ochmo/risks-of-decompression-sickness-and-venous-thromboembolism-during-spaceflight-and-patent-foramen-ovale-implications/</guid>
+      <pubDate>Tue, 22 Sep 2026 19:19:45 GMT</pubDate>
+      <description>NASA’s Office of the Chief Health and Medical Officer formed a working group in August 2026 to review the most recent data related to extravehicular activity (EVA) prebreathe testing and decompression sickness (DCS) events, venous thromboembolism (VTE) in-fli…</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>NASA-Funded Research Finds Complex Life Defying Record Heat</title>
+      <link>https://science.nasa.gov/science-research/planetary-science/nasa-funded-research-finds-complex-life-defying-record-heat/</link>
+      <guid isPermaLink="true">https://science.nasa.gov/science-research/planetary-science/nasa-funded-research-finds-complex-life-defying-record-heat/</guid>
+      <pubDate>Tue, 22 Sep 2026 17:33:10 GMT</pubDate>
+      <description>Lee esta historia en español aquí. NASA-supported scientists have discovered an organism that lives at extreme temperatures previously thought impossible for complex life. High temperatures can cause the destruction of necessary cell components, which is a bi…</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>NASA’s Chandra Finds Unusual Objects in Pinwheel Galaxy</title>
+      <link>https://www.nasa.gov/image-article/nasas-chandra-finds-unusual-objects-in-pinwheel-galaxy/</link>
+      <guid isPermaLink="true">https://www.nasa.gov/image-article/nasas-chandra-finds-unusual-objects-in-pinwheel-galaxy/</guid>
+      <pubDate>Tue, 22 Sep 2026 15:40:48 GMT</pubDate>
+      <description>Using NASA’s Chandra X-ray Observatory, researchers found mysterious objects that give off unusually low-energy X-rays but intense levels of ultraviolet radiation. One of the galaxies they studied, M101, is pictured here in this image released on Sept. 9, 202…</description>
+      <source url="https://www.nasa.gov/">NASA</source>
+    </item>
+    <item>
+      <title>When a country goes underwater: Island States fight for their future</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168398</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168398</guid>
+      <pubDate>Tue, 22 Sep 2026 12:00:00 GMT</pubDate>
+      <description>Rising sea levels and ever-more-powerful storms are eroding shorelines, submerging land and threatening to evict millions of people from their homes worldwide.&amp;nbsp;</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>How El Niño offers a test of whether the world can adapt to a changing climate</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168404</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168404</guid>
+      <pubDate>Tue, 22 Sep 2026 12:00:00 GMT</pubDate>
+      <description>El Niño is strengthening in a world that is already hotter, raising the risk of drought, floods and crop losses across some of the world’s most important food-producing regions. But unlike many disasters, this one can be seen coming. UN experts say the months…</description>
+      <source url="https://news.un.org/en/">UN News</source>
+    </item>
+    <item>
+      <title>‘Ask us first’: Children demand a voice on AI’s future</title>
+      <link>https://news.un.org/feed/view/en/story/2026/09/1168403</link>
+      <guid isPermaLink="true">https://news.un.org/feed/view/en/story/2026/09/1168403</guid>
+      <pubDate>Tue, 22 Sep 2026 12:00:00 GMT</pubDate>
+      <description>The first generation to grow up with AI may also be the last one anyone thinks to ask about it – and that has to change, the UN&apos;s top human rights official said on Tuesday.</description>
+      <source url="https://news.un.org/en/">UN News</source>
     </item>
   </channel>
 </rss>

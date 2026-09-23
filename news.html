@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="assets/css/site.css" />
     <script src="assets/js/site.js" defer></script>
     <script src="assets/js/live-news.js" defer></script>
+    <meta property="og:site_name" content="Portal" />
+    <meta name="twitter:card" content="summary" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">ข้ามไปยังเนื้อหา</a>
@@ -69,7 +71,7 @@
             <button class="filter-button" type="button" data-filter="ท่องเที่ยว" aria-pressed="false">ท่องเที่ยว</button>
           </div>
         </div>
-        <div class="news-toolbar"><p class="news-count" data-news-count aria-live="polite">กำลังโหลดรายการ</p><a class="section-link" href="article.html">อ่านบทความตัวอย่าง →</a></div>
+        <div class="news-toolbar"><p class="news-count" data-news-count aria-live="polite">กำลังโหลดรายการ</p><div class="toolbar-links"><a class="section-link" href="article.html">อ่านบทความตัวอย่าง →</a><a class="section-link" href="saved.html" data-saved-link data-saved-count>บันทึก (0)</a></div></div>
       </section>
 
       <section class="container section-compact" data-live-news aria-labelledby="live-news-title">
@@ -84,13 +86,21 @@
             <p class="news-count" data-live-news-updated></p>
           </div>
         </div>
-        <div class="filter-list" aria-label="กรองข่าวตามแหล่งที่มา">
-          <button class="filter-button is-active" type="button" data-live-filter="all" aria-pressed="true">ทั้งหมด</button>
-          <button class="filter-button" type="button" data-live-filter="un-news" aria-pressed="false">UN News</button>
-          <button class="filter-button" type="button" data-live-filter="nasa" aria-pressed="false">NASA</button>
-          <button class="filter-button" type="button" data-live-filter="who" aria-pressed="false">WHO</button>
+        <div class="live-news-toolbar">
+          <div class="search-field"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg><label class="sr-only" for="live-news-search">ค้นหาข่าวสด</label><input id="live-news-search" type="search" placeholder="ค้นหาข่าวสด" data-live-news-search /></div>
+          <div class="filter-list" role="group" aria-label="กรองข่าวตามแหล่งที่มา">
+            <button class="filter-button is-active" type="button" data-live-filter="all" aria-pressed="true">ทั้งหมด</button>
+            <button class="filter-button" type="button" data-live-filter="un-news" aria-pressed="false">UN News</button>
+            <button class="filter-button" type="button" data-live-filter="nasa" aria-pressed="false">NASA</button>
+            <button class="filter-button" type="button" data-live-filter="who" aria-pressed="false">WHO</button>
+          </div>
+          <label class="sr-only" for="live-news-category">หมวดข่าวสด</label>
+          <select id="live-news-category" class="filter-button" data-live-news-category><option value="all">ทุกหมวด</option><option value="โลก">โลก</option><option value="วิทยาศาสตร์">วิทยาศาสตร์</option><option value="สุขภาพ">สุขภาพ</option></select>
         </div>
         <div class="news-grid" data-live-news-grid></div>
+        <div class="empty-state" data-live-news-empty hidden><strong>ยังไม่พบข่าวที่ตรงกัน</strong><p>ลองเปลี่ยนคำค้นหา แหล่งที่มา หรือหมวดข่าว</p></div>
+        <div class="load-more"><button class="button button-outline button-small" type="button" data-live-news-more hidden>ดูเพิ่ม</button></div>
+        <noscript><p class="form-note">กรุณาเปิดใช้งาน JavaScript เพื่อโหลดข่าวสด หรือเปิดลิงก์ RSS ของ Portal</p></noscript>
         <p class="news-count" data-live-news-status role="status" aria-live="polite">กำลังโหลดข่าวจากแหล่งที่มา...</p>
       </section>
 
