@@ -25,8 +25,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&amp;family=Noto+Serif+Thai:wght@600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="alternate" type="application/rss+xml" title="Portal RSS" href="rss.xml" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="assets/css/site.css" />
     <script src="assets/js/site.js" defer></script>
+    <script src="assets/js/live-news.js" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">ข้ามไปยังเนื้อหา</a>
@@ -66,6 +70,28 @@
           </div>
         </div>
         <div class="news-toolbar"><p class="news-count" data-news-count aria-live="polite">กำลังโหลดรายการ</p><a class="section-link" href="article.html">อ่านบทความตัวอย่าง →</a></div>
+      </section>
+
+      <section class="container section-compact" data-live-news aria-labelledby="live-news-title">
+        <div class="section-head">
+          <div class="section-head-copy">
+            <p class="eyebrow">ข่าวจากแหล่งทางการ</p>
+            <h2 class="section-title" id="live-news-title">ข่าวจริงที่ดึงจากฟีดสาธารณะ</h2>
+            <p class="story-summary">ระบบดึงเฉพาะหัวข้อ สรุปสั้น และลิงก์ต้นฉบับจาก RSS ที่เปิดใช้งานได้ โดยไม่คัดลอกบทความเต็มหรือรูปภาพมาลงเว็บไซต์ <a class="section-link" href="sources.html">ดูแหล่งข่าว →</a></p>
+          </div>
+          <div>
+            <button class="button button-outline button-small" type="button" data-live-news-refresh>โหลดข้อมูลล่าสุด</button>
+            <p class="news-count" data-live-news-updated></p>
+          </div>
+        </div>
+        <div class="filter-list" aria-label="กรองข่าวตามแหล่งที่มา">
+          <button class="filter-button is-active" type="button" data-live-filter="all" aria-pressed="true">ทั้งหมด</button>
+          <button class="filter-button" type="button" data-live-filter="un-news" aria-pressed="false">UN News</button>
+          <button class="filter-button" type="button" data-live-filter="nasa" aria-pressed="false">NASA</button>
+          <button class="filter-button" type="button" data-live-filter="who" aria-pressed="false">WHO</button>
+        </div>
+        <div class="news-grid" data-live-news-grid></div>
+        <p class="news-count" data-live-news-status role="status" aria-live="polite">กำลังโหลดข่าวจากแหล่งที่มา...</p>
       </section>
 
       <section class="container section-compact" aria-label="รายการเนื้อหา">

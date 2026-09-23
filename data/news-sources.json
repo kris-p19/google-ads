@@ -1,0 +1,26 @@
+[
+  {
+    "id": "un-news",
+    "name": "UN News",
+    "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml",
+    "homepage": "https://news.un.org/en/",
+    "category": "โลก",
+    "accent": "sky"
+  },
+  {
+    "id": "nasa",
+    "name": "NASA",
+    "url": "https://www.nasa.gov/news-release/feed/",
+    "homepage": "https://www.nasa.gov/",
+    "category": "วิทยาศาสตร์",
+    "accent": "brand"
+  },
+  {
+    "id": "who",
+    "name": "World Health Organization",
+    "url": "https://www.who.int/rss-feeds/news-english.xml",
+    "homepage": "https://www.who.int/",
+    "category": "สุขภาพ",
+    "accent": "coral"
+  }
+]

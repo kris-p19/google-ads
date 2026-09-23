@@ -51,6 +51,49 @@
   const requestedFilter = params.get('category');
   if (requestedFilter && validFilters.has(requestedFilter)) selectedFilter = requestedFilter;
 
+  const categoryPage = document.querySelector('[data-category-page]');
+
+  if (categoryPage) {
+    const categoryDetails = {
+      'เทคโนโลยี': {
+        eyebrow: 'หมวดเทคโนโลยี',
+        title: 'เครื่องมือและไอเดียที่นำไปใช้ได้จริง',
+        description: 'ข่าวสาร บทวิเคราะห์ และคู่มือด้านเทคโนโลยีที่ช่วยให้เลือกใช้งานได้เหมาะกับงานจริง',
+      },
+      'ธุรกิจ': {
+        eyebrow: 'หมวดธุรกิจ',
+        title: 'ข้อมูลและเครื่องมือที่ช่วยให้ธุรกิจเดินหน้า',
+        description: 'เรียนรู้จากกระบวนการทำงาน การจัดการข้อมูล และการตัดสินใจที่เกิดขึ้นจริงในธุรกิจ',
+      },
+      'สังคม': {
+        eyebrow: 'หมวดสังคม',
+        title: 'บริบทของเรื่องราวที่กำลังเปลี่ยนไป',
+        description: 'มองประเด็นสังคมผ่านข้อมูล บริบท และคำถามที่ควรตั้งไว้ก่อนสรุป',
+      },
+      'สุขภาพ': {
+        eyebrow: 'หมวดสุขภาพ',
+        title: 'เริ่มต้นดูแลตัวเองจากสิ่งที่ทำได้วันนี้',
+        description: 'คู่มือสั้น ๆ สำหรับการพักผ่อน จัดการพลัง และสร้างนิสัยที่เหมาะกับชีวิตจริง',
+      },
+      'ท่องเที่ยว': {
+        eyebrow: 'หมวดท่องเที่ยว',
+        title: 'เมือง ชุมชน และการท่องเที่ยวที่มีบริบท',
+        description: 'เรื่องราวการเดินทางที่มองทั้งผู้เยี่ยมชม ชุมชน และสิ่งที่ทำให้ท้องถิ่นยังมีชีวิต',
+      },
+    };
+    const details = categoryDetails[selectedFilter];
+
+    if (details) {
+      const eyebrow = categoryPage.querySelector('[data-category-eyebrow]');
+      const title = categoryPage.querySelector('[data-category-title]');
+      const description = categoryPage.querySelector('[data-category-description]');
+      if (eyebrow) eyebrow.textContent = details.eyebrow;
+      if (title) title.textContent = details.title;
+      if (description) description.textContent = details.description;
+      document.title = `${selectedFilter} — Portal`;
+    }
+  }
+
   const updateNews = () => {
     if (!cards.length) return;
     const query = searchInput ? searchInput.value.trim().toLocaleLowerCase('th') : '';
