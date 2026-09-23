@@ -272,6 +272,22 @@ const readContent = async (env) => {
   }
 };
 
+const readStaticContent = async (env) => {
+  if (!env.ASSETS) return null;
+  try {
+    const [newsResponse, jobsResponse] = await Promise.all([
+      env.ASSETS.fetch('https://assets.local/content/news.json'),
+      env.ASSETS.fetch('https://assets.local/content/jobs.json'),
+    ]);
+    if (!newsResponse.ok || !jobsResponse.ok) return null;
+    const [news, jobs] = await Promise.all([newsResponse.json(), jobsResponse.json()]);
+    if (!Array.isArray(news.items) || !Array.isArray(jobs.jobs)) return null;
+    return { generatedAt: new Date().toISOString(), source: 'static-fallback', news, jobs };
+  } catch {
+    return null;
+  }
+};
+
 const updateContent = async (env) => {
   const previous = await readContent(env);
   const [newsResult, jobsResult] = await Promise.allSettled([fetchNews(), fetchJobs()]);
@@ -307,15 +323,20 @@ const jsonResponse = (data, status, headers = {}) => new Response(JSON.stringify
 });
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const headers = corsHeaders(request, env);
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers });
     if (url.pathname === '/api/content' && request.method === 'GET') {
       if (!env.CONTENT) return jsonResponse({ error: 'CONTENT_KV_NOT_CONFIGURED' }, 503, headers);
       const content = await readContent(env);
-      if (!content) return jsonResponse({ error: 'CONTENT_NOT_READY' }, 503, headers);
-      return jsonResponse(content, 200, { ...headers, 'Cache-Control': 'public, max-age=300, s-maxage=300' });
+      if (content) return jsonResponse(content, 200, { ...headers, 'Cache-Control': 'public, max-age=300, s-maxage=300' });
+      const staticContent = await readStaticContent(env);
+      if (staticContent) {
+        if (ctx?.waitUntil) ctx.waitUntil(env.CONTENT.put(CONTENT_KEY, JSON.stringify(staticContent), { expirationTtl: 60 * 60 * 24 * 30 }));
+        return jsonResponse(staticContent, 200, { ...headers, 'Cache-Control': 'public, max-age=60, s-maxage=60' });
+      }
+      return jsonResponse({ error: 'CONTENT_NOT_READY' }, 503, headers);
     }
     if (url.pathname === '/api/health' && request.method === 'GET') {
       return jsonResponse({ ok: true, service: 'brief-content-worker', configured: Boolean(env.CONTENT) }, 200, headers);
