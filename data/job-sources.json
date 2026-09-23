@@ -1,0 +1,9 @@
+{
+  "name": "สำนักงาน ก.พ.",
+  "portalUrl": "https://job.ocsc.go.th/portal/",
+  "apiBase": "https://jobapp.ocsc.go.th/jobapi",
+  "departmentEndpoint": "/portal/departments",
+  "jobsEndpoint": "/portal/departments/{department}/jobs",
+  "departmentTypes": [0, 1, 2, 3],
+  "maxDepartments": 40
+}

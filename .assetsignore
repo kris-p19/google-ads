@@ -1,0 +1,6 @@
+.git
+node_modules
+worker
+data
+scripts
+wrangler.toml

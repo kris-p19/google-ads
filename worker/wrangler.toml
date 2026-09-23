@@ -1,0 +1,20 @@
+name = "brief-content-worker"
+main = "worker.js"
+compatibility_date = "2026-09-24"
+workers_dev = true
+
+[assets]
+directory = ".."
+binding = "ASSETS"
+not_found_handling = "404-page"
+run_worker_first = ["/api/*"]
+
+[triggers]
+crons = ["0 * * * *"]
+
+[vars]
+ALLOWED_ORIGIN = "https://brief.fintechxhub.com"
+
+[[kv_namespaces]]
+binding = "CONTENT"
+id = "e0654ceb086a4328b154808878ebfa4f"

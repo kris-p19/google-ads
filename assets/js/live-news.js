@@ -87,14 +87,29 @@
     setStatus(`แสดง ${Math.min(visible.length, 12)} ข่าวล่าสุด · ข้อมูลจากฟีดทางการ`);
   };
 
+  const readNewsData = async () => {
+    try {
+      const response = await fetch('/api/content', { cache: 'no-store' });
+      if (response.ok) {
+        const payload = await response.json();
+        if (Array.isArray(payload.news?.items)) {
+          payload.news.generatedAt = payload.news.generatedAt || payload.generatedAt;
+          return payload.news;
+        }
+      }
+    } catch {}
+
+    const response = await fetch('content/news.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+  };
+
   const loadNews = async () => {
     if (refreshButton) refreshButton.disabled = true;
     setStatus('กำลังโหลดข่าวล่าสุด...');
 
     try {
-      const response = await fetch('content/news.json', { cache: 'no-store' });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      newsData = await response.json();
+      newsData = await readNewsData();
       if (updated && newsData.generatedAt) {
         updated.textContent = `อัปเดต ${formatDate(newsData.generatedAt)}`;
       }
