@@ -1,4 +1,4 @@
-name = "brief-portal"
+name = "portal"
 main = "worker/worker.js"
 compatibility_date = "2026-09-24"
 workers_dev = true
@@ -21,4 +21,4 @@ custom_domain = true
 
 [[kv_namespaces]]
 binding = "CONTENT"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "e0654ceb086a4328b154808878ebfa4f"

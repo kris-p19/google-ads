@@ -1,4 +1,4 @@
-name = "brief-content-worker"
+name = "portal"
 main = "worker.js"
 compatibility_date = "2026-09-24"
 workers_dev = true
