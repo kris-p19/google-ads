@@ -15,6 +15,10 @@ crons = ["0 * * * *"]
 [vars]
 ALLOWED_ORIGIN = "https://brief.fintechxhub.com"
 
+[[routes]]
+pattern = "brief.fintechxhub.com"
+custom_domain = true
+
 [[kv_namespaces]]
 binding = "CONTENT"
 id = "e0654ceb086a4328b154808878ebfa4f"
