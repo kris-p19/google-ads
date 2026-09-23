@@ -98,6 +98,18 @@
     });
   }
 
+  const contactForm = document.querySelector('[data-contact-form]');
+  const contactStatus = document.querySelector('[data-contact-status]');
+
+  if (contactForm && contactStatus) {
+    contactForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const name = new FormData(contactForm).get('name');
+      contactStatus.textContent = `ขอบคุณ ${name} ข้อมูลผ่านการตรวจสอบแล้ว แต่ยังไม่ได้ส่งออก เพราะระบบรับข้อความยังไม่ได้เชื่อมต่อ`;
+      contactForm.reset();
+    });
+  }
+
   const storageKey = 'portal-ad-consent';
   const banner = document.querySelector('[data-consent-banner]');
   const settingsButton = document.querySelector('[data-consent-settings]');
