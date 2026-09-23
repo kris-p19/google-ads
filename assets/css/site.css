@@ -2973,6 +2973,68 @@ select.filter-button {
   flex: 0 0 auto;
 }
 
+.ad-desktop {
+  display: block;
+}
+
+.ad-wide,
+.ad-standard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-inline: auto;
+  overflow: hidden;
+}
+
+.ad-wide {
+  min-height: 5.6rem;
+}
+
+.ad-standard {
+  max-width: 48rem;
+  min-height: 4.4rem;
+}
+
+.ad-wide ins {
+  width: min(1200px, 100%) !important;
+  max-width: 100%;
+}
+
+.ad-standard ins {
+  width: min(600px, 100%) !important;
+  max-width: 100%;
+}
+
+.ad-mobile ins {
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (max-width: 62rem) {
+  .ad-desktop {
+    display: none !important;
+  }
+
+  .ad-mobile {
+    display: block !important;
+    min-height: 5rem;
+    overflow: hidden;
+  }
+
+  .ad-wide,
+  .ad-standard {
+    min-height: 0;
+    overflow: visible;
+  }
+
+  .ad-wide ins,
+  .ad-standard ins {
+    width: 100% !important;
+    max-width: 100%;
+  }
+}
+
 @media (max-width: 46rem) {
   .toolbar-links {
     justify-content: flex-start;
@@ -2989,6 +3051,15 @@ select.filter-button {
   .saved-summary {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .advertisement {
+    margin-block: 1.5rem;
+    padding: 0.75rem;
+  }
+
+  .inline-ad {
+    margin-block: 2rem;
   }
 }
 

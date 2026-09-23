@@ -258,28 +258,44 @@
       settingsButton.hidden = true;
       if (focus) window.requestAnimationFrame(() => banner.querySelector('button')?.focus());
     };
+    let adsAllowed = false;
+    let resizeTimer;
+    const isRenderable = (unit) => {
+      const rect = unit.getBoundingClientRect();
+      const style = window.getComputedStyle(unit);
+      return rect.width >= 250 && rect.height > 0 && style.display !== 'none' && style.visibility !== 'hidden';
+    };
     const queueAdUnits = () => {
+      if (!adsAllowed) return;
+      window.adsbygoogle = window.adsbygoogle || [];
       document.querySelectorAll('ins.adsbygoogle').forEach((unit) => {
-        if (unit.dataset.portalQueued === 'true') return;
+        if (unit.dataset.portalQueued === 'true' || !isRenderable(unit)) return;
         unit.dataset.portalQueued = 'true';
-        window.adsbygoogle = window.adsbygoogle || [];
         window.adsbygoogle.push({});
       });
     };
     const loadAdSense = () => {
       if (!document.querySelector('ins.adsbygoogle')) return;
       queueAdUnits();
-      if (document.querySelector('script[data-portal-adsense]')) return;
+      window.requestAnimationFrame(queueAdUnits);
+      window.setTimeout(queueAdUnits, 600);
+      if (document.getElementById('portal-adsense-script')) return;
       const script = document.createElement('script');
+      script.id = 'portal-adsense-script';
       script.async = true;
       script.crossOrigin = 'anonymous';
       script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adClient}`;
-      script.dataset.portalAdsense = 'true';
       document.head.appendChild(script);
     };
+    window.addEventListener('resize', () => {
+      if (!adsAllowed) return;
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(queueAdUnits, 180);
+    }, { passive: true });
     let choice = null;
     try { choice = localStorage.getItem(storageKey); } catch {}
     if (choice === 'granted') {
+      adsAllowed = true;
       loadAdSense();
       hideBanner();
     } else if (choice === 'declined') {
@@ -290,10 +306,13 @@
     banner.addEventListener('click', (event) => {
       const button = event.target.closest('[data-consent]');
       if (!button) return;
-      const adsWereLoaded = Boolean(document.querySelector('script[data-portal-adsense]'));
+      const adsWereLoaded = Boolean(document.getElementById('portal-adsense-script'));
       choice = button.dataset.consent;
       try { localStorage.setItem(storageKey, choice); } catch {}
-      if (choice === 'granted') loadAdSense();
+      if (choice === 'granted') {
+        adsAllowed = true;
+        loadAdSense();
+      }
       if (choice === 'declined' && adsWereLoaded) {
         window.location.reload();
         return;
