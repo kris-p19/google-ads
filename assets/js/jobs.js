@@ -13,7 +13,7 @@
   const openCount = jobsPage.querySelector('[data-jobs-open-count]');
   const departmentCount = jobsPage.querySelector('[data-jobs-department-count]');
   const refresh = jobsPage.querySelector('[data-jobs-refresh]');
-  const accents = ['visual-coral', 'visual-brand', 'visual-sky', 'visual-sand', 'visual-lilac'];
+  const accents = ['visual-government', 'visual-editorial', 'visual-world', 'visual-tech', 'visual-health'];
   let jobData = null;
   let selectedStatus = 'all';
 

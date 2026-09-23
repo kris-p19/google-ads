@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720">
+  <defs>
+    <linearGradient id="health" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d6c9df" />
+      <stop offset="1" stop-color="#f0d5ca" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#health)" />
+  <circle cx="960" cy="160" r="250" fill="#f7f0e4" opacity=".55" />
+  <path d="M600 560C410 430 250 325 250 190c0-120 160-160 245-30l105 135 105-135c85-130 245-90 245 30 0 135-160 240-350 370Z" fill="#173e34" opacity=".9" />
+  <path d="M600 500V230" stroke="#d2ed72" stroke-width="18" stroke-linecap="round" />
+  <path d="M600 300 510 210M600 380l100-100" stroke="#d2ed72" stroke-width="12" stroke-linecap="round" />
+  <path d="M140 590c120-40 210-40 330 0" fill="none" stroke="#c77d64" stroke-width="18" stroke-linecap="round" />
+  <circle cx="1010" cy="560" r="32" fill="#d2ed72" />
+</svg>

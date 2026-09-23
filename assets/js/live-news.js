@@ -8,7 +8,8 @@
   const updated = liveNews.querySelector('[data-live-news-updated]');
   const refreshButton = liveNews.querySelector('[data-live-news-refresh]');
   const filterButtons = [...liveNews.querySelectorAll('[data-live-filter]')];
-  const accents = ['visual-brand', 'visual-coral', 'visual-sky', 'visual-sand', 'visual-lilac'];
+  const accents = ['visual-editorial', 'visual-world', 'visual-tech', 'visual-health', 'visual-travel'];
+  const accentClasses = { brand: 'visual-tech', sky: 'visual-world', coral: 'visual-health' };
   let selectedSource = 'all';
   let newsData = null;
 
@@ -28,7 +29,8 @@
     article.className = 'story-card';
 
     const visual = document.createElement('a');
-    visual.className = `card-visual visual-pattern ${item.accent || accents[index % accents.length]}`;
+    const accentClass = accentClasses[item.accent] || accents[index % accents.length];
+    visual.className = `card-visual visual-pattern ${accentClass}`;
     visual.href = item.url;
     visual.target = '_blank';
     visual.rel = 'noopener noreferrer';

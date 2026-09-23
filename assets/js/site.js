@@ -15,6 +15,32 @@
     currentYear.textContent = String(new Date().getFullYear());
   }
 
+  let scrollTicking = false;
+  const updateScrollProgress = () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = scrollable > 0 ? window.scrollY / scrollable : 0;
+    document.documentElement.style.setProperty('--scroll-progress', String(Math.min(1, Math.max(0, progress))));
+    scrollTicking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(updateScrollProgress);
+  }, { passive: true });
+  updateScrollProgress();
+
+  const backToTop = document.createElement('button');
+  backToTop.type = 'button';
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('aria-label', 'กลับด้านบน');
+  backToTop.textContent = '↑';
+  document.body.appendChild(backToTop);
+  const updateBackToTop = () => backToTop.classList.toggle('is-visible', window.scrollY > 560);
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' }));
+  window.addEventListener('scroll', updateBackToTop, { passive: true });
+  updateBackToTop();
+
   const menuButton = document.querySelector('[data-menu-button]');
   const mobileNav = document.querySelector('[data-mobile-nav]');
 

@@ -350,7 +350,12 @@ export default {
         return jsonResponse({ error: error.message }, 500, headers);
       }
     }
-    if (env.ASSETS) return env.ASSETS.fetch(request);
+    if (env.ASSETS) {
+      const assetRequest = url.pathname === '/'
+        ? new Request(new URL('/index.html', request.url), request)
+        : request;
+      return env.ASSETS.fetch(assetRequest);
+    }
     return jsonResponse({ error: 'NOT_FOUND' }, 404, headers);
   },
 

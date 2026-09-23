@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720">
+  <defs>
+    <linearGradient id="travel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fc8d3" />
+      <stop offset=".62" stop-color="#f0d6a1" />
+      <stop offset="1" stop-color="#c77d64" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#travel)" />
+  <circle cx="930" cy="170" r="110" fill="#d2ed72" opacity=".9" />
+  <path d="M0 460 260 250l190 150 190-230 250 270 150-120 160 140v260H0Z" fill="#173e34" opacity=".85" />
+  <path d="M0 560c220-100 380-100 600 0s400 100 600 0v160H0Z" fill="#0c201b" opacity=".75" />
+  <path d="M470 720c80-130 140-210 230-290 80-70 150-110 260-160" fill="none" stroke="#f6f0e4" stroke-width="28" stroke-linecap="round" opacity=".8" />
+  <path d="M700 430c-20-60-10-110 40-150M700 430c70-20 120-60 150-120" fill="none" stroke="#d2ed72" stroke-width="14" stroke-linecap="round" />
+</svg>
